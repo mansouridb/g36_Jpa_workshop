@@ -26,4 +26,7 @@ public class Recipe {
     @JoinColumn(name = "recipecatagory_id")
     private RecipeCategory recipeCategory;
 
+    public Recipe(int id) {
+        this.id = id;
+    }
 }

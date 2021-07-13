@@ -21,6 +21,7 @@ public class RecipeIngredient extends Recipe {
     private Recipe recipe;
 
     public RecipeIngredient(String id, Ingredient ingredient, double amount, Measurement measurement, Recipe recipe) {
+        super(id);
         this.id = id;
         this.ingredient = ingredient;
         this.amount = amount;
