@@ -3,6 +3,7 @@ package se_lexicon.majid.g36_jpa_workshop.model;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class RecipeIngredient extends Recipe {
@@ -20,8 +21,25 @@ public class RecipeIngredient extends Recipe {
     @JoinColumn(name = "recipe_id")
     private Recipe recipe;
 
-    public RecipeIngredient(String id, Ingredient ingredient, double amount, Measurement measurement, Recipe recipe) {
+    public RecipeIngredient(int id, RecipeInstruction recipeInstruction, Set<RecipeCategory> recipeCategory, String id1, Ingredient ingredient, double amount, Measurement measurement, Recipe recipe) {
         super(id, recipeInstruction, recipeCategory);
+        this.id = id1;
+        this.ingredient = ingredient;
+        this.amount = amount;
+        this.measurement = measurement;
+        this.recipe = recipe;
+    }
+
+    public RecipeIngredient(RecipeInstruction recipeInstruction, Set<RecipeCategory> recipeCategory, String id, Ingredient ingredient, double amount, Measurement measurement, Recipe recipe) {
+        super(recipeInstruction, recipeCategory);
+        this.id = id;
+        this.ingredient = ingredient;
+        this.amount = amount;
+        this.measurement = measurement;
+        this.recipe = recipe;
+    }
+
+    public RecipeIngredient(String id, Ingredient ingredient, double amount, Measurement measurement, Recipe recipe) {
         this.id = id;
         this.ingredient = ingredient;
         this.amount = amount;
