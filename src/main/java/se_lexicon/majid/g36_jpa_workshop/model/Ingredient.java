@@ -1,7 +1,6 @@
 package se_lexicon.majid.g36_jpa_workshop.model;
 
 import javax.persistence.*;
-// remove unused imports: Alt + Ctrl + O
 
 @Entity
 public class Ingredient {
@@ -10,6 +9,7 @@ public class Ingredient {
     private long id;
     @Column(unique = true)
     private String ingredient;
+
     public Ingredient() {
     }
 

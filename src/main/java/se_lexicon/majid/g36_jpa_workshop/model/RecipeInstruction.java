@@ -1,48 +1,38 @@
 package se_lexicon.majid.g36_jpa_workshop.model;
 
-import java.util.Objects;
+import org.hibernate.annotations.GenericGenerator;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import java.util.Objects;
+//Class: RecipeInstruction
+//a. Contains an id of type String. Generate the id as a UUID from Hibernate.
+//b. Contains recipe instructions of type String
+@Entity
 public class RecipeInstruction {
-    private String instructionId;
+    @Id
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+    private String id;
     private String instructions;
 
-    @Override
-    public String toString() {
-        return "RecipeInstruction{" +
-                "instructions='" + instructions + '\'' +
-                '}';
+    public RecipeInstruction() {
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        RecipeInstruction that = (RecipeInstruction) o;
-        return Objects.equals(instructions, that.instructions);
+    public String getId() {
+        return id;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(instructions);
-    }
-
-    public void setInstructionId(String instructionId) {
-        this.instructionId = instructionId;
-    }
-
-    public void setInstructions(String instructions) {
-        this.instructions = instructions;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getInstructions() {
         return instructions;
     }
 
-    public RecipeInstruction(String instructionId, String instructions) {
-        this.instructionId = instructionId;
+    public void setInstructions(String instructions) {
         this.instructions = instructions;
-    }
-
-    public RecipeInstruction() {
     }
 }
